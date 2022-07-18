@@ -1,0 +1,41 @@
+server:
+  port: 6002
+  servlet:
+    context-path: /
+spring:
+  datasource:
+    #type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://120.79.123.113:3306/db2022?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+  redis:
+    database: 0
+    host: 120.79.123.113
+    port: 6379
+    password:
+    lettuce:
+      pool.max-active: 8
+      pool.max-wait: 1ms
+      pool.max-idle: 8
+      pool.min-idle: 0
+# mybatis配置
+mybatis-plus:
+  # xml文件路径
+  mapper-locations: classpath:mapper/*.xml
+  # 实体类路径
+  type-aliases-package: com.example.yu.entities
+  configuration:
+    # 驼峰转换
+    map-underscore-to-camel-case: true
+    # 是否开启缓存
+    cache-enabled: false
+    # 打印sql
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  # 全局配置
+  global-config:
+    # 数据库字段驼峰下划线转换
+    db-column-underline: true
+    # id自增类型(数据库id自增)
+    id-type: 0
+
